@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#Added
 gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
