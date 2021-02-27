@@ -9,10 +9,11 @@ class SessionsController < ApplicationController
         end
 
         if user.valid?
-            redirect_to 
+            #redirect_to *redirect-location*
         else
             flash[:message] = user.errors.full_messages.join("")
-            redirect_to
+            #redirect_to *redirect-location*
+        end
     end
 
     private
