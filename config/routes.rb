@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   
   resources :users
-  resources :legosets 
+  resources :legosets
+  resources :themes 
 
 end
