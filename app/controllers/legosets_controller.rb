@@ -15,6 +15,7 @@ class LegosetsController < ApplicationController
 
     def create
         @legoset = Legoset.new(legoset_params)
+        @legoset.user = current_user
         if @legoset.save
             redirect_to legoset_path(@legoset)
         else
