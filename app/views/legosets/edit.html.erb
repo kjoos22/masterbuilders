@@ -1,6 +1,17 @@
 <h1>Edit Set</h1>
 
-<p style="color: red; font-weight:bold"><%= @errors %></p>
+<% if @legoset.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@legoset.errors.count, "error") %> prohibited this Legoset from being saved:</h2>
+
+    <ul>
+      <% @legoset.errors.full_messages.each do |error| %>
+        <li><p style="color: red; font-weight:bold"><%= error %></p></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@legoset) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br><br>
