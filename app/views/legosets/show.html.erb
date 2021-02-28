@@ -4,6 +4,6 @@
 <%= "Theme: " %>
 <%= link_to("#{@legoset.theme.try(:name)}", theme_path(@legoset.theme)) %><br>
 <%= "Price: $#{@legoset.display_price}" %><br>
-<%= "Age: #{@legoset.age}+"%><br>
+<%= "Age: #{@legoset.age}+"%><br><br>
 <%= link_to("Edit", edit_legoset_path(@legoset)) %>
 <%= button_to("Delete", legoset_path(@legoset), method: 'delete')%>

@@ -16,6 +16,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %><br><br>
     <%= f.label :theme %>
+    <%= f.collection_select :theme_id, Theme.all, :id, :name, prompt: true %>
     <%= f.fields_for :theme do |t| %>
       <%= t.label :name %>
       <%= t.text_field :name %><br><br>

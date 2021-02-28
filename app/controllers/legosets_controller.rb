@@ -49,6 +49,6 @@ class LegosetsController < ApplicationController
 
     def legoset_params
         params.require(:legoset).permit(:name, :number_of_pieces, :price, :age,
-            theme_attributes: [:name])
+            :theme_id, theme_attributes: [:name])
     end
 end
