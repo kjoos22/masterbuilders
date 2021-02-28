@@ -5,6 +5,6 @@ class LegosetsController < ApplicationController
     end
 
     def show
-        
+        @legoset = Legoset.find(params[:id])
     end
 end
