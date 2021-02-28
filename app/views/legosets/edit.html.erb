@@ -1,0 +1,14 @@
+<h1>Edit Set</h1>
+
+<%= form_for(@legoset) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :number_of_pieces %>
+    <%= f.number_field :number_of_pieces %><br><br>
+    <%= f.label :price %>
+    <%= f.number_field :price, step: 0.01%><br><br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br><br>
+    <% #add theme %>
+    <%= f.submit %>
+<% end %>
