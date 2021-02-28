@@ -1,0 +1,15 @@
+<h1>Log In</h1>
+
+
+<p style="color: red"><%= flash[:message] %></p>
+<%= form_with(url: '/login', local: true) do |f| %>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br><br>
+
+    <%= f.submit "Log In"%>
+<% end %>
+<p>or</p>
+<%= button_to("Log In With Google", '/auth/google_oauth2') %>
+<p>Not a member? <%= link_to("Sign Up!", new_user_path) %></p>

@@ -6,15 +6,39 @@ class SessionsController < ApplicationController
                 provider: auth['provider']) do |u|
             u.username = auth['info']['name']
             u.email = auth['info']['email']
+            u.password = SecureRandom.hex(16)
         end
 
         if user.valid?
-            #redirect_to *redirect-location*
+            session[:user_id] = user.id
+            redirect_to user_path(user)
         else
             flash[:message] = user.errors.full_messages.join("")
-            #redirect_to *redirect-location*
+            redirect_to login_path
         end
     end
+
+    def destroy
+        session.delete(:user_id)
+        redirect_to '/login'
+    end
+
+    def new
+
+    end
+
+    def create
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect_to user_path(user)
+        else
+            flash[:message] = "Invalid credentials. Please try again."
+            redirect_to login_path
+        end
+    end
+
+    
 
     private
 

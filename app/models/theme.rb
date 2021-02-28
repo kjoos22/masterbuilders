@@ -1,5 +1,6 @@
 class Theme < ApplicationRecord
     has_many :legosets
+    has_many :users, through: :legosets
     validates :name, presence: true, uniqueness: true
 
     

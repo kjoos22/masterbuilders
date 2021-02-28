@@ -1,5 +1,5 @@
 class Legoset < ApplicationRecord
-    #belongs_to :user
+    belongs_to :user
     belongs_to :theme
     validates :name, :number_of_pieces, :age, :price, presence: true
     validates :number_of_pieces, :age, :price, numericality: {greater_than: 0}

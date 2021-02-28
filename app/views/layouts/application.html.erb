@@ -11,11 +11,14 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= button_to("Logout", '/logout') %>
+    <% else %>
+      <%= link_to("Log In/Signup", '/login') %>
+    <% end %>    
     <%= link_to("Sets", legosets_path) %>
-    <%= link_to("Themes", themes_path) %>
-    <!-- button for post request -->
-    <br><br>
-    <%= button_to("Log In With Google", '/auth/google_oauth2') %>
+    <%= link_to("Themes", themes_path) %>  
+    
     <%= yield %>
   </body>
 </html>
