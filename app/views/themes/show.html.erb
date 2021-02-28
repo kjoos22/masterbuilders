@@ -1,1 +1,6 @@
 <h1><%= @theme.name %></h1>
+
+<h3>Legosets</h3>
+<ul><% @theme.legosets.each do |legoset| %>
+    <li><%= link_to(legoset.name, legoset_path(legoset)) %></li>
+<% end %></ul>

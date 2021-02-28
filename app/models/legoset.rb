@@ -1,5 +1,8 @@
 class Legoset < ApplicationRecord
     #belongs_to :user
+    belongs_to :theme
+    #remove
+    #accepts_nested_attributes_for :theme
     validates :name, :number_of_pieces, :age, :price, presence: true
     validates :number_of_pieces, :age, :price, numericality: {greater_than: 0}
 
@@ -15,5 +18,9 @@ class Legoset < ApplicationRecord
             display_price[1] << "00"
         end
         display_price.join(".")        
+    end
+
+    def theme_attributes=(attr)
+        self.theme = Theme.find_or_create_by(name: attr[:name])
     end
 end

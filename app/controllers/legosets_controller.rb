@@ -10,6 +10,7 @@ class LegosetsController < ApplicationController
 
     def new
         @legoset = Legoset.new
+        @legoset.build_theme
     end
 
     def create
@@ -23,7 +24,10 @@ class LegosetsController < ApplicationController
     end
 
     def edit
-        @legoset = Legoset.find(params[:id])        
+        @legoset = Legoset.find(params[:id])
+        if !@legoset.theme
+            @legoset.build_theme
+        end
     end
 
     def update
@@ -44,6 +48,7 @@ class LegosetsController < ApplicationController
     private
 
     def legoset_params
-        params.require(:legoset).permit(:name, :number_of_pieces, :price, :age)
+        params.require(:legoset).permit(:name, :number_of_pieces, :price, :age,
+            theme_attributes: [:name])
     end
 end

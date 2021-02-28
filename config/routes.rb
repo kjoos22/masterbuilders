@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   
   resources :users
   resources :legosets, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :themes, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
+  resources :themes, only: [:index, :show, :new, :create] 
 
 end
