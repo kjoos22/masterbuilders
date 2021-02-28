@@ -1,7 +1,7 @@
 class LegosetsController < ApplicationController
 
     def index
-        @legosets = Legoset.all
+        @legosets = Legoset.ordered_by_name
     end
 
     def show

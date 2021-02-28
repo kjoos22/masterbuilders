@@ -1,5 +1,5 @@
 <h1>Themes Index</h1>
 
 <ul><% @themes.each do |theme| %>
-    <li><%= theme.name%></li>
+    <li><%= link_to(theme.name, theme_path(theme)) %></li>
 <% end %></ul>
