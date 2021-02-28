@@ -41,5 +41,9 @@ class ThemesController < ApplicationController
         redirect_to themes_path
     end
 
+    private
 
+    def theme_params
+        params.require(:theme).permit(:name)
+    end
 end
