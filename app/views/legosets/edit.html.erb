@@ -1,5 +1,6 @@
 <h1>Edit Set</h1>
 
+<p style="color: red; font-weight:bold"><%= @errors %></p>
 <%= form_for(@legoset) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br><br>

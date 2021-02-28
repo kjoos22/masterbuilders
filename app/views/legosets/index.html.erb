@@ -3,3 +3,5 @@
 <ul><% @legosets.each do |legoset| %>
     <li><%= link_to(legoset.name, legoset_path(legoset)) %></li>
 <% end %></ul>
+
+<%= link_to("Create Legoset", new_legoset_path) %>

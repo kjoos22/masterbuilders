@@ -17,6 +17,7 @@ class LegosetsController < ApplicationController
         if @legoset.save
             redirect_to legoset_path(@legoset)
         else
+            @errors = @legoset.errors.full_messages.join(". ")
             render :new
         end
     end
@@ -26,9 +27,13 @@ class LegosetsController < ApplicationController
     end
 
     def update
-        legoset = Legoset.find(params[:id]) 
-        legoset.update(legoset_params)
-        redirect_to legoset_path(legoset)
+        @legoset = Legoset.find(params[:id]) 
+        if @legoset.update(legoset_params)
+            redirect_to legoset_path(@legoset)
+        else
+            @errors = @legoset.errors.full_messages.join(". ")
+            render :edit
+        end
     end
 
     def destroy
