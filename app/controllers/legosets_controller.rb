@@ -18,13 +18,11 @@ class LegosetsController < ApplicationController
         @legoset.build_theme
     end
 
-    def create
-        if legoset_params[:theme]
-            legoset_params[:theme_id] = Theme.find_by(name: legoset_params[:theme]).id
-            legoset_params.delete(:theme_id)
-            binding.pry
+    def create        
+        if params[:legoset][:theme]
+            params[:legoset][:theme_id] = Theme.find_by(name: params[:legoset][:theme]).id
+            params[:legoset].delete(:theme)            
         end
-        
         @legoset = Legoset.new(legoset_params)
         @legoset.user = current_user
         if @legoset.save
