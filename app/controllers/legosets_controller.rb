@@ -54,7 +54,7 @@ class LegosetsController < ApplicationController
         Legoset.find(params[:id]).destroy
         redirect_to legosets_path
     end
-    
+        
 
     private
 

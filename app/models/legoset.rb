@@ -3,6 +3,7 @@ class Legoset < ApplicationRecord
     belongs_to :theme
     validates :name, :number_of_pieces, :age, :price, presence: true
     validates :number_of_pieces, :age, :price, numericality: {greater_than: 0}
+    scope :expensive, -> {where("price > 100")}
 
     def self.ordered_by_name
         self.order(name: :asc)

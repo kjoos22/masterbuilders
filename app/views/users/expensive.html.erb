@@ -1,0 +1,6 @@
+
+<h1><%= "#{User.find(params[:id]).username}'s Expensive Sets"%></h1>
+
+<ul><% @legosets.each do |legoset| %>
+    <li><%= link_to(legoset.name, legoset_path(legoset)) %></li>
+<% end %></ul>

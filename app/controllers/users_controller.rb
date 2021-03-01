@@ -22,9 +22,16 @@ class UsersController < ApplicationController
         @users = User.ordered_by_name
     end
 
+    def expensive
+        #binding.pry
+        @legosets = Legoset.where("price > 100 and user_id = #{params[:id]}")
+    end
+
     private
 
     def user_params
         params.require(:user).permit(:username, :email, :password)
     end
+
+    
 end
