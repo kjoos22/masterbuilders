@@ -6,3 +6,8 @@
 <% end %></ul>
 
 <%= link_to("Add Legoset", new_theme_legoset_path(@theme))%>
+
+<h3><%="The following Master Builders have built #{@theme.name} Legosets: "%></h3>
+<ul><% @theme.users.uniq.each do |user| %>
+    <li><%= link_to(user.username, user_path(user))%></li>
+<% end %></ul>

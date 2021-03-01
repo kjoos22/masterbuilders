@@ -2,3 +2,8 @@
 
 <%= link_to("#{@user.username}'s Legosets", user_legosets_path(@user))%><br>
 <%= link_to("#{@user.username}'s Expensive Legosets", expensive_legosets_path(@user))%>
+
+<h3><%="#{@user.username} has built Legosets in the following themes: "%></h3>
+<ul><% @user.themes.uniq.each do |theme| %>
+    <li><%= link_to(theme.name, theme_path(theme))%></li>
+<% end %></ul>
