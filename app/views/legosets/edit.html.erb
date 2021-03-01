@@ -12,20 +12,24 @@
   </div>
 <% end %>
 
-<%= form_for(@legoset) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
-    <%= f.label :theme %>
-    <%= f.collection_select :theme_id, Theme.all, :id, :name, prompt: true %>
-    <%= f.fields_for :theme do |t| %>
-      <%= t.label :name %>
-      <%= t.text_field :name %><br><br>
-    <% end %>
-    <%= f.label :number_of_pieces %>
-    <%= f.number_field :number_of_pieces %><br><br>
-    <%= f.label :price %>
-    <%= f.number_field :price, step: 0.01%><br><br>
-    <%= f.label :age %>
-    <%= f.number_field :age %><br><br>
-    <%= f.submit %>
-<% end %>
+<% if current_user == @legoset.user %>
+  <%= form_for(@legoset) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %><br><br>
+      <%= f.label :theme %>
+      <%= f.collection_select :theme_id, Theme.all, :id, :name, prompt: true %>
+      <%= f.fields_for :theme do |t| %>
+        <%= t.label :name %>
+        <%= t.text_field :name %><br><br>
+      <% end %>
+      <%= f.label :number_of_pieces %>
+      <%= f.number_field :number_of_pieces %><br><br>
+      <%= f.label :price %>
+      <%= f.number_field :price, step: 0.01%><br><br>
+      <%= f.label :age %>
+      <%= f.number_field :age %><br><br>
+      <%= f.submit %>
+  <% end %>
+<% else %>
+  <p>You can not edit a Legoset that you did not build!</p>
+<%end %>

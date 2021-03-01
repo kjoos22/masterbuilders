@@ -1,7 +1,12 @@
 class LegosetsController < ApplicationController
+    include LegosetsHelper
 
     def index
-        @legosets = Legoset.ordered_by_name
+        if params[:user_id]
+            @legosets = Legoset.where(user_id: params[:user_id])           
+        else
+            @legosets = Legoset.ordered_by_name
+        end
     end
 
     def show

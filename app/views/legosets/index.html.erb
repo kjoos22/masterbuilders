@@ -1,7 +1,13 @@
-<h1>Legosets Index</h1>
+<% if !for_user? %>
+    <h1>All Legosets</h1>
+<% else %>
+    <h1><%= "#{User.find(params[:user_id]).username}'s Legosets" %></h1>
+<% end %>
 
 <ul><% @legosets.each do |legoset| %>
     <li><%= link_to(legoset.name, legoset_path(legoset)) %></li>
 <% end %></ul>
 
-<%= link_to("Create Legoset", new_legoset_path) %>
+<% if !for_user? %>
+    <%= link_to("Create Legoset", new_legoset_path) %>
+<% end %>

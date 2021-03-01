@@ -13,11 +13,13 @@
   <body>
     <% if logged_in? %>
       <%= button_to("Logout", '/logout') %>
+      <%= link_to("My Profile", user_path(current_user)) %>
     <% else %>
       <%= link_to("Log In/Signup", '/login') %>
     <% end %>    
-    <%= link_to("Sets", legosets_path) %>
-    <%= link_to("Themes", themes_path) %>  
+    <%= link_to("Legosets", legosets_path) %>
+    <%= link_to("Themes", themes_path) %>
+    <%= link_to("Master Builders", users_path) %>  
     
     <%= yield %>
   </body>

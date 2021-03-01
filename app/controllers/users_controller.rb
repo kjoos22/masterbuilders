@@ -18,6 +18,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def index
+        @users = User.ordered_by_name
+    end
+
     private
 
     def user_params
