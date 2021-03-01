@@ -1,6 +1,6 @@
 # masterbuilders
 
-A Ruby on Rails app to track LEGO sets that have been built by users ("Master Builders") and their associated Theme (LEGO City, Star Wars, Space, Pirates, etc.). Masterbuilders tracks the following for each completed set - price, number of pieces, and reccomended age. Support for Google based OAuth is included. 
+A Ruby on Rails app to track LEGO sets that have been built by users ("Master Builders") and their associated Theme (LEGO City, Star Wars, Space, Pirates, etc.). Masterbuilders tracks the following for each completed set - price, number of pieces, and reccomended age. Support for Google based OAuth is included. Editing of LEGO sets is restricted to only the user that created/built the set. 
 
 ## Installation
 To install the program, run the following:
