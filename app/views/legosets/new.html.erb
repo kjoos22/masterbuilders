@@ -15,12 +15,16 @@
 <% if logged_in? %>
   <%= form_for(@legoset) do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
+    <%= f.text_field :name %><br><br>    
     <%= f.label :theme %>
-    <%= f.collection_select :theme_id, Theme.all, :id, :name, prompt: true %>
-    <%= f.fields_for :theme do |t| %>
-      <%= t.label :name %>
-      <%= t.text_field :name %><br><br>
+    <% if params[:theme_id] %>
+      <%= f.text_field :theme, value: Theme.find(params[:theme_id]).name, readonly: true %><br><br>
+    <% else %>
+      <%= f.collection_select :theme_id, Theme.all, :id, :name, prompt: true %>    
+      <%= f.fields_for :theme do |t| %>
+        <%= t.label :name %>
+        <%= t.text_field :name %><br><br>
+      <% end %>
     <% end %>
     <%= f.label :number_of_pieces %>
     <%= f.number_field :number_of_pieces %><br><br>

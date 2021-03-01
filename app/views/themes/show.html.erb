@@ -4,3 +4,5 @@
 <ul><% @theme.legosets.each do |legoset| %>
     <li><%= link_to(legoset.name, legoset_path(legoset)) %></li>
 <% end %></ul>
+
+<%= link_to("Add Legoset", new_theme_legoset_path(@theme))%>

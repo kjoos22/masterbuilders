@@ -19,6 +19,12 @@ class LegosetsController < ApplicationController
     end
 
     def create
+        if legoset_params[:theme]
+            legoset_params[:theme_id] = Theme.find_by(name: legoset_params[:theme]).id
+            legoset_params.delete(:theme_id)
+            binding.pry
+        end
+        
         @legoset = Legoset.new(legoset_params)
         @legoset.user = current_user
         if @legoset.save
@@ -56,6 +62,6 @@ class LegosetsController < ApplicationController
 
     def legoset_params
         params.require(:legoset).permit(:name, :number_of_pieces, :price, :age,
-            :theme_id, theme_attributes: [:name])
+            :theme_id, :theme, theme_attributes: [:name])
     end
 end

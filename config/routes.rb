@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :legosets, only: [:index]
   end
   resources :legosets, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :themes, only: [:index, :show, :new, :create] 
+  resources :themes, only: [:index, :show, :new, :create] do
+    resources :legosets, only: [:new, :create]
+  end
 
 end
