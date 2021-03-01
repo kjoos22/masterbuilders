@@ -7,4 +7,6 @@
 <%= "Age: #{@legoset.age}+"%><br>
 <%= "Built by: #{@legoset.user.username}" %><br><br>
 <%= link_to("Edit", edit_legoset_path(@legoset)) %>
-<%= button_to("Delete", legoset_path(@legoset), method: 'delete')%>
+<% if current_user == @legoset.user %>
+    <%= button_to("Delete", legoset_path(@legoset), method: 'delete')%>
+<% end %>
